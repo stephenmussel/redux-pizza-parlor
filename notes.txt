@@ -1,0 +1,4 @@
+- [x] set up database
+- [] create views
+- [] create reducers
+- [] create client side routes/links
