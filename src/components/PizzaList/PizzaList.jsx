@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaList() {
 
@@ -29,11 +30,10 @@ function PizzaList() {
             <h2>Step 1: Select Your Pizza</h2>
             {/* {JSON.stringify(pizzaList)} */}
             {pizzaList.map(pizza => 
-                <div>
-                    <h4>{pizza.name}</h4>
-                    <p>{pizza.description}</p>
-                    <p>{pizza.price}</p>
-                    <button>Add</button>
+                <div key={pizza.id}>
+                    <PizzaItem
+                        pizza={pizza}
+                    />
                 </div>
             )}
         </>
