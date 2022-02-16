@@ -4,6 +4,9 @@ import { useDispatch } from 'react-redux';
 
 function CustomerInfo() {
 
+    // TODO: capture radio inputs
+    // TODO: add customerInfo reducer
+
     const defaultCustomer = {
         name: '',
         address: '',

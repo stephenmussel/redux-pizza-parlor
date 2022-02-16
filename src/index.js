@@ -29,10 +29,20 @@ const shoppingCart = (state = [], action) => {
     return state;
 }
 
+const customerInfo = (state = [], action) => {
+    console.log('in customerInfo reducer');
+    
+    if(action.type === 'ADD_CUSTOMER') {
+        return [...state, action.payload]
+    }
+    return state;
+}
+
 const reduxStore = createStore(
     combineReducers({
         pizzaList,
         shoppingCart,
+        customerInfo,
     }),
     applyMiddleware(logger)
 )
