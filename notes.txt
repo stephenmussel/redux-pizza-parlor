@@ -8,3 +8,12 @@
     - add radio buttons
     - add next button
     
+
+- [] step 3: checkout
+    - display customer information
+    - display order
+    - checkout button
+- [] checkout button 
+    - POST to database
+    - show confirmation dialog
+    - clear cart then navigate back to step 1

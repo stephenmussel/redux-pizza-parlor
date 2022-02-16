@@ -2,18 +2,38 @@ import { useSelector } from 'react-redux'
 
 function Checkout() {
 
+    // TODO: display orderType
+    // TODO: display cart total
+
     const shoppingCart = useSelector(store => store.shoppingCart)
     const customerInfo = useSelector(store => store.customerInfo)
-
 
     return(
         <>
             <h2>Step 3: Checkout</h2>
-            <h4>this is customer info:</h4>
-            {JSON.stringify(customerInfo)}
-            <h4>this is shopping cart:</h4>
-            {JSON.stringify(shoppingCart)}
-
+            <h4>customer info:</h4>
+            {/* {JSON.stringify(customerInfo)} */}
+            {customerInfo.map(customer =>
+                <div>
+                    <p>{customer.name}</p>
+                    <p>{customer.address}</p>
+                    <p>{customer.city}, {customer.zip}</p>
+                    <p>{customer.orderType}</p>
+                </div> 
+            )}
+            <h4>order:</h4>
+            {/* {JSON.stringify(shoppingCart)} */}
+            {shoppingCart.map(item =>
+            <>
+                <div>
+                    <p>{item.name}</p>
+                    <p>${item.price}</p>
+                </div> 
+            </>
+            )}
+            <div>
+                <h2>cart total: $</h2>
+            </div>
         </>
     )
 }
