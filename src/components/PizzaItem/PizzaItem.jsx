@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 function PizzaItem({pizza}) {
 
     // TODO: conditionally render `remove` button
+    // TODO: add images
 
     const [pizzaSelected, setPizzaSelected] = useState(false);
     const dispatch = useDispatch();
@@ -16,13 +17,34 @@ function PizzaItem({pizza}) {
         dispatch(action);
     }
 
+    const handleRemove = (pizzaId) => {
+        console.log('in handleRemove');
+        console.log('pizza removed: ', pizza.name, 'with id: ', pizzaId);
+        setPizzaSelected(false);
+    }
+
     return(
-        <>
-            <h4>{pizza.name}</h4>
-            <p>{pizza.description}</p>
-            <p>{pizza.price}</p>
-            <button onClick={selectPizza}>Add</button>
-        </>
+        <div>
+        {pizzaSelected ? (
+            <>
+                <h4>{pizza.name}</h4>
+                <img width="200px" height="200px" src={pizza.image_path}/>
+                <p>{pizza.description}</p>
+                <p>${pizza.price}</p>
+                <button onClick={() => handleRemove(pizza.id)}>Remove</button>
+            </>
+        ) : (
+            <>
+                <h4>{pizza.name}</h4>
+                <img width="200px" height="200px" src={pizza.image_path}/>
+                <p>{pizza.description}</p>
+                <p>${pizza.price}</p>
+                <button onClick={selectPizza}>Add</button>
+            </>
+        )
+        }
+            
+        </div>
     )
 }
 
