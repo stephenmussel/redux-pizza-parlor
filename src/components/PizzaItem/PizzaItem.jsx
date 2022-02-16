@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux';
 
 function PizzaItem({pizza}) {
 
-    // TODO: conditionally render `remove` button
-
     const [pizzaSelected, setPizzaSelected] = useState(false);
     const dispatch = useDispatch();
 
