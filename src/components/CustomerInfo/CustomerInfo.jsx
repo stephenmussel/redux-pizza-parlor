@@ -4,15 +4,12 @@ import { useDispatch } from 'react-redux';
 
 function CustomerInfo() {
 
-    // TODO: capture radio inputs
-    // TODO: add customerInfo reducer
-
     const defaultCustomer = {
         name: '',
         address: '',
         city: '',
         zip: '',
-        // orderType: false
+        orderType: true
     }
 
     const [newCustomer, setNewCustomer] = useState(defaultCustomer);
@@ -67,12 +64,19 @@ function CustomerInfo() {
                 <label>
                     <input 
                         type="radio"
+                        name="orderType" // names must be the same to only allow one radio selection
+                        value={false}
+                        onChange={(event) => ({...newCustomer, orderType: event.target.value})}
                     />
                     Pickup
                 </label>
                 <label>
                     <input 
                         type="radio"
+                        name="orderType"
+                        value={true}
+                        onChange={(event) => ({...newCustomer, orderType: event.target.value})}
+                        checked
                     />
                     Delivery
                 </label>
