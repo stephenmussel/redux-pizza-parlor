@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import PizzaItem from '../PizzaItem/PizzaItem';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function PizzaList() {
 
     const pizzaList = useSelector(store => store.pizzaList)
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
         console.log('in useEffect');
@@ -30,6 +32,11 @@ function PizzaList() {
         });
     }
 
+    const customerInfo = () => {
+        console.log('clicked next');
+        history.push('/customerInfo');
+    }
+
     return(
         <>
             <h2>Step 1: Select Your Pizza</h2>
@@ -41,6 +48,8 @@ function PizzaList() {
                     />
                 </div>
             )}
+            <br /><br />
+            <button onClick={customerInfo}>Next</button>
         </>
     )
 }

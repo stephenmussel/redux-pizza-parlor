@@ -16,13 +16,11 @@ function App() {
   
       {/* <img src='images/pizza_photo.png' /> */}
       {/* <p>Pizza is great.</p> */}
-      <section>
         <Router>
           <Route exact path="/"><PizzaList /></Route>
           <Route path="/customerInfo"><CustomerInfo /></Route>
           <Route path="/checkout"><Checkout /></Route>
         </Router>
-      </section>
       
     </div>
   );
