@@ -8,6 +8,9 @@ import { logger } from 'redux-logger';
 
 const pizzaList = (state = [], action) => {
     console.log('in pizzaList reducer');
+    if(action.type === 'SET_PIZZA_LIST') {
+        return action.payload; // data from DB
+    }
     return state;
 }
 
