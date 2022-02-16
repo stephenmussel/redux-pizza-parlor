@@ -13,6 +13,10 @@ const pizzaList = (state = [], action) => {
 
 const shoppingCart = (state = [], action) => {
     console.log('in shoppingCart reducer');
+    
+    if(action.type === 'ADD_TO_CART') {
+        return [...state, action.payload]
+    }
     return state;
 }
 
