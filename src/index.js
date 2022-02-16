@@ -19,6 +19,12 @@ const shoppingCart = (state = [], action) => {
     
     if(action.type === 'ADD_TO_CART') {
         return [...state, action.payload]
+    } else if(action.type === 'REMOVE_FROM_CART') {
+        for( let item of state) {
+            if(item.id === action.payload) {
+                return [...state].filter(item => item.id != action.payload);
+            }
+        }
     }
     return state;
 }
