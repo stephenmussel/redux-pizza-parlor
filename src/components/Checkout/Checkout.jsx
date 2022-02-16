@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import CartTotal from '../CartTotal/CartTotal';
 
 function Checkout() {
 
@@ -31,9 +32,7 @@ function Checkout() {
                 </div> 
             </>
             )}
-            <div>
-                <h2>cart total: $</h2>
-            </div>
+            <CartTotal />
         </>
     )
 }
