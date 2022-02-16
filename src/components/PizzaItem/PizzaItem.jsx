@@ -21,6 +21,9 @@ function PizzaItem({pizza}) {
         console.log('in handleRemove');
         console.log('pizza removed: ', pizza.name, 'with id: ', pizzaId);
         setPizzaSelected(false);
+
+        const action = { type: 'REMOVE_FROM_CART', payload: pizzaId}
+        dispatch(action);
     }
 
     return(
