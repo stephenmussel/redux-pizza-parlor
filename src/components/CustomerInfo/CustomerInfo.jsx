@@ -1,4 +1,13 @@
+import { useHistory } from 'react-router-dom';
+
 function CustomerInfo() {
+
+    const history = useHistory();
+
+    const checkout = () => {
+        console.log('heading to checkout');
+        history.push ('/checkout');
+    }
     return(
         <>
             <h2>Step 2: Customer Information</h2>
@@ -39,6 +48,7 @@ function CustomerInfo() {
                     Delivery
                 </label>
                 <br /><br />
+                <button onClick={checkout}>Next</button>
             </form>
         </>
     )
