@@ -8,8 +8,9 @@ function CustomerInfo() {
         name: '',
         address: '',
         city: '',
+        state: '',
         zip: '',
-        orderType: true
+        orderType: 'true' // sets as default to delivery
     }
 
     const [newCustomer, setNewCustomer] = useState(defaultCustomer);
@@ -53,32 +54,41 @@ function CustomerInfo() {
                 /><br /><br />
                 <input 
                     required 
+                    value={newCustomer.state}
+                    onChange={(event) => setNewCustomer({...newCustomer, state: event.target.value})}
+                    type="text" 
+                    placeholder="state"
+                /><br /><br />
+                <input 
+                    required 
                     value={newCustomer.zip}
                     onChange={(event) => setNewCustomer({...newCustomer, zip: event.target.value})}
                     type="number" 
                     placeholder="zip"
                 /><br /><br />
 
-                Is this order for <b>Pickup</b> or <b>Delivery</b>?<br /><br />
+                Is this order for <b>Delivery</b> or <b>Pickup</b>?<br /><br />
 
                 <label>
                     <input 
                         type="radio"
-                        name="orderType" // names must be the same to only allow one radio selection
-                        value={false}
-                        onChange={(event) => ({...newCustomer, orderType: event.target.value})}
+                        name="orderType"
+                        value="true"
+                        onChange={(event) => setNewCustomer({...newCustomer, orderType: event.target.value})}
+                        checked={newCustomer.orderType === "true"}
                     />
-                    Pickup
+                    Delivery
                 </label>
                 <label>
                     <input 
                         type="radio"
-                        name="orderType"
-                        value={true}
-                        onChange={(event) => ({...newCustomer, orderType: event.target.value})}
-                        checked
+                        name="orderType" // names must be the same to only allow one radio selection
+                        value="false"
+                        onChange={(event) => setNewCustomer({...newCustomer, orderType: event.target.value})}
+                        checked={newCustomer.orderType === "false"}
+
                     />
-                    Delivery
+                    Pickup
                 </label>
                 <br /><br />
                 <button onClick={checkout}>Next</button>
