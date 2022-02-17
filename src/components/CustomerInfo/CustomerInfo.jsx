@@ -86,7 +86,6 @@ function CustomerInfo() {
                         value="false"
                         onChange={(event) => setNewCustomer({...newCustomer, orderType: event.target.value})}
                         checked={newCustomer.orderType === "false"}
-
                     />
                     Pickup
                 </label>

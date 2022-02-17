@@ -3,6 +3,8 @@ import CartTotal from '../CartTotal/CartTotal';
 
 function Checkout() {
 
+    // TODO: conditionally render orderType of `for Delivery` or `for Pickup`
+
     const shoppingCart = useSelector(store => store.shoppingCart)
     const customerInfo = useSelector(store => store.customerInfo)
 
@@ -19,9 +21,9 @@ function Checkout() {
                     <p>{customer.city}, {customer.zip}</p>
                     {/* <p>{customer.orderType.toString()}</p> */}
                     {customer.orderType ? (
-                        <h3>for pickup</h3>
-                    ) : (
                         <h3>for delivery</h3>
+                    ) : (
+                        <h3>for pickup</h3>
                     )
                     }
                 </div>
