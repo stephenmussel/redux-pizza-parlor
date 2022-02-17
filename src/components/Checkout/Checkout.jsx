@@ -15,7 +15,7 @@ function Checkout() {
             <h4>customer info:</h4>
             {/* {JSON.stringify(customerInfo)} */}
             {customerInfo.map(customer =>
-                <div>
+                <div key={customer.id}>
                     <p>{customer.name}</p>
                     <p>{customer.address}</p>
                     <p>{customer.city}, {customer.zip}</p>
